@@ -12,10 +12,30 @@ namespace Game
         private float y;
         private float offsetX;
         private float offsetY;
-        
-        public Crane()
-        {
 
+        private Animation derecha; //test
+        private enum AnimationState { right }
+        private AnimationState state;
+
+        public Crane(float x, float y)
+        {
+            this.x = x;
+            this.y = y;
+            offsetX = 26;
+            offsetY = 23;
+            derecha = new Animation("Textures/Derecha",0.05f,true);
+            state = AnimationState.right;
+        }
+
+        public void Render()
+        {
+            switch (state)
+            {
+                case AnimationState.right:
+                    derecha.RenderNextFrame(x, y);
+                    break;
+            }
+            
         }
     }
 }

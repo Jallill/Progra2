@@ -16,6 +16,7 @@ namespace Game
         static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
         static DateTime startDate;
+        static Crane crane;
 
         static void Main(string[] args)
         {
@@ -23,6 +24,7 @@ namespace Game
             int sleepTime;
 
             setUp();
+            crane = new Crane(400,300);
 
             while (loop)
             {
@@ -76,10 +78,11 @@ namespace Game
             switch (currentState)
             {
             }
+            crane.Render();
             Engine.Show();
         }
 
-        static float GetCurrentTime()
+        public static float GetCurrentTime()
         {
             TimeSpan diffStart = DateTime.Now.Subtract(startDate);
             return (float)(diffStart.TotalMilliseconds);
