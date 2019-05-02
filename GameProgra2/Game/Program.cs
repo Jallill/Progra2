@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Game
+namespace Engine
 {
     public class Program
     {
@@ -16,7 +16,6 @@ namespace Game
         static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
         static DateTime startDate;
-        static Crane crane;
 
         static void Main(string[] args)
         {
@@ -24,7 +23,6 @@ namespace Game
             int sleepTime;
 
             setUp();
-            crane = new Crane(400,300);
 
             while (loop)
             {
@@ -47,7 +45,14 @@ namespace Game
         static void setUp()
         {
             Engine.Initialize("Progra2", 800, 600, false);
-            
+
+            Node core = new Node(0);
+            core.addNode(3, core);
+            core.addNode(5, core);
+            core.addNode(2, core);
+
+            core.searchNode(2, core);
+            core.searchNode(9, core);
 
             startDate = DateTime.Now;
         }
@@ -78,7 +83,6 @@ namespace Game
             switch (currentState)
             {
             }
-            crane.Render();
             Engine.Show();
         }
 

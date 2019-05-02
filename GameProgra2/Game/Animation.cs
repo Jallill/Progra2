@@ -6,47 +6,64 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Game
+namespace Engine
 {
-    class Animation
+
+    public class Animation
     {
-        private List<Texture> frames = new List<Texture>();
+        public string name { get; private set; }
+
         private bool loop;
+
         private float speed = 0.05f;
         private float lastFrame;
+
         private int nextFrame = 0;
+
+        private List<Texture> frames = new List<Texture>();
         private Texture actualFrame;
-        
-        public Animation(string path, float speed, bool loop)
+
+        public Animation(string path, float speed)
         {
             LoadTextures(path);
             actualFrame = frames.First();
 
             this.speed = speed;
-            this.loop = loop;
         }
 
         private void LoadTextures(string path)
         {
-
             DirectoryInfo myDir = new DirectoryInfo(path);
-            int count = myDir.GetFiles().Length;
-            foreach(FileInfo file in myDir.GetFiles())
+            name = myDir.Name;
+            if (myDir.GetFiles().Length > 1)
             {
-                frames.Add(Engine.GetTexture(file.FullName));
+                loop = true;
+
+                foreach (FileInfo file in myDir.GetFiles())
+                {
+                    frames.Add(Engine.GetTexture(file.FullName));
+                }
+
             }
+            else
+            {
+                frames.Add(Engine.GetTexture(myDir.GetFiles()[0].FullName));
+                actualFrame = frames[0];
+                loop = false;
+            }
+
 
         }
 
-        public void RenderNextFrame(float x, float y)
+        public void RenderNextFrame(float x, float y, float angle = 0)
         {
             if (loop)
-            { 
+            {
 
                 if (Program.GetCurrentTime() / 1000f > lastFrame + speed)
                 {
                     nextFrame++;
-                    if(nextFrame >= frames.Count())
+                    if (nextFrame >= frames.Count())
                     {
                         nextFrame = 0;
                     }
@@ -54,13 +71,8 @@ namespace Game
                     actualFrame = frames[nextFrame];
                     lastFrame = Program.GetCurrentTime() / 1000f;
                 }
-
             }
-            else
-            {
-                actualFrame = frames[0];
-            }
-            Engine.Draw(actualFrame, x, y, 1, 1, 0, actualFrame.Width / 2, actualFrame.Height / 2);
+            Engine.Draw(actualFrame, x, y, 1, 1, angle, actualFrame.Width/2, actualFrame.Height/2);
         }
 
     }

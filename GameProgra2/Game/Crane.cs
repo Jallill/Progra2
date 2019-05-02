@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game
+namespace Engine
 {
     class Crane
     {
@@ -23,7 +23,7 @@ namespace Game
             this.y = y;
             offsetX = 26;
             offsetY = 23;
-            derecha = new Animation("Textures/Derecha",0.05f,true);
+            derecha = new Animation("Textures/Derecha",0.05f);
             state = AnimationState.right;
         }
 
