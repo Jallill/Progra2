@@ -16,6 +16,7 @@ namespace Engine
         static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
         static DateTime startDate;
+        static Node core;
 
         static void Main(string[] args)
         {
@@ -46,13 +47,17 @@ namespace Engine
         {
             Engine.Initialize("Progra2", 800, 600, false);
 
-            Node core = new Node(0);
+            core = new Node(0);
             core.addNode(3, core);
             core.addNode(5, core);
             core.addNode(2, core);
 
             core.searchNode(2, core);
             core.searchNode(9, core);
+            core.searchNode(3, core);
+            core.searchNode(5, core);
+            core.searchNode(32, core);
+            core.searchNode(12, core);
 
             startDate = DateTime.Now;
         }

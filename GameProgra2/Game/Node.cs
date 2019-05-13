@@ -45,7 +45,7 @@ namespace Engine
 
         public Node searchNode(int value, Node node)
         {
-            if(node != null)
+            if (node != null)
             {
                 if (value == node.value)
                 {
@@ -59,12 +59,14 @@ namespace Engine
                 {
                     node.searchNode(value, node.greaterNode);
                 }
-                else
-                {
-                    Engine.Debug("No se encontro el valor");
-                }
+            }
+            else
+            {
+                Engine.Debug("No se encontro el valor");
+                return null;
             }
 
             return node;
         }
     }
+}
