@@ -21,6 +21,8 @@ namespace Engine
             this.greaterNode = greaterNode;
         }
 
+
+        //Agrega un nodo al nodo anterior
         public Node addNode(int value, Node node)
         {
             if (node == null)
