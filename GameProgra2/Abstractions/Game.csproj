@@ -38,12 +38,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Node.cs" />
+    <Compile Include="NodeSelector.cs" />
     <Compile Include="Tree.cs" />
     <Compile Include="Utils\Animation.cs" />
     <Compile Include="Utils\EntidadBase.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Interfaces\IBaseMethods.cs" />
-    <Compile Include="Interfaces\IGestorNodos.cs" />
+    <Compile Include="Interfaces\INodeManager.cs" />
     <Compile Include="Interfaces\IGestorVisualizador.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Program.cs" />

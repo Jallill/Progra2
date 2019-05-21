@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    class Node
+    public class Node
     {
         public Node greaterNode { get; private set; }
         public Node lesserNode { get; private set; }
+        public Node fatherNode { get; set; }
 
+        //Esta propiedad define si este nodo es el que tiene seleccionado actualmente el usuario.
+        public bool selected { get; set; }
         public int value { get; private set; }
 
 
