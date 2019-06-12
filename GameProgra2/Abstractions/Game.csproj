@@ -49,8 +49,6 @@
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Utils\Text.cs" />
-    <Compile Include="Tilemap\Tile.cs" />
-    <Compile Include="Tilemap\TileMap.cs" />
     <Compile Include="Utils\Vector2D.cs" />
   </ItemGroup>
   <ItemGroup>
