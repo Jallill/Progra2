@@ -3,9 +3,9 @@ using System;
 
 namespace Game
 {
-    public class NodeSelector : INodeManager
+    public class NodeSelector //: INodeManager
     {
-        public void AddNode(int value, Node nodoPadre)
+        public void AddNode(int value, NodoABB nodoPadre)
         {
             throw new NotImplementedException();
         }
@@ -20,22 +20,22 @@ namespace Game
             throw new NotImplementedException();
         }
 
-        public void SelectFatherNode(Node nodoActual)
+        /*public void SelectFatherNode(NodoABB nodoActual)
         {
             nodoActual.selected = false;
             nodoActual.fatherNode.selected = true;
         }
 
-        public void SelectGreaterNode(Node nodoActual)
+        public void SelectGreaterNode(NodoABB nodoActual)
         {
             nodoActual.selected = false;
-            nodoActual.greaterNode.selected = true;
+            nodoActual.hijoDer.selected = true;
         }
 
-        public void SelectLesserNode(Node nodoActual)
+        public void SelectLesserNode(NodoABB nodoActual)
         {
             nodoActual.selected = false;
-            nodoActual.lesserNode.selected = true;
-        }
+            nodoActual.hijoIzq.selected = true;
+        }*/
     }
 }

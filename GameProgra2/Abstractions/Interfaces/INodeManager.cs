@@ -25,7 +25,7 @@ namespace Abstracciones
         /// </summary>
         /// <param name="value">Valor que se va a cargar en el nodo.</param>
         /// <param name="nodoPadre">Nodo padre al que se va a adherir.</param>
-        void AddNode(int value, Node nodoPadre);
+        void AddNode(int value, NodoABB nodoPadre);
 
         /// <summary>
         /// Elimina un nodo.
@@ -37,18 +37,18 @@ namespace Abstracciones
         /// Cambio la posicion de seleccion del nodo actual al superior de este.
         /// </summary>
         /// <param name="nodoActual">Nodo actualmente seleccionado.</param>
-        void SelectGreaterNode(Node nodoActual);
+        void SelectGreaterNode(NodoABB nodoActual);
 
         /// <summary>
         /// Cambio la posicion de seleccion del nodo actual al inferior de este.
         /// </summary>
         /// <param name="nodoActual">Nodo actualmente seleccionado.</param>
-        void SelectLesserNode(Node nodoActual);
+        void SelectLesserNode(NodoABB nodoActual);
 
         /// <summary>
         /// Cambio la posicion de seleccion del nodo actual al padre de este.
         /// </summary>
         /// <param name="nodoActual">Nodo actualmente seleccionado.</param>
-        void SelectFatherNode(Node nodoActual);
+        //void SelectFatherNode(NodoABB nodoActual);
     }
 }

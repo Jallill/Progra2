@@ -37,8 +37,10 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Node.cs" />
+    <Compile Include="Interfaces\IABBTDA.cs" />
+    <Compile Include="ABB.cs" />
     <Compile Include="NodeSelector.cs" />
+    <Compile Include="NodoABB.cs" />
     <Compile Include="Tree.cs" />
     <Compile Include="Utils\Animation.cs" />
     <Compile Include="Utils\EntidadBase.cs" />

@@ -17,7 +17,6 @@ namespace Game
         static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
         static DateTime startDate;
-        static Node core;
 
         static void Main(string[] args)
         {
@@ -47,18 +46,7 @@ namespace Game
         static void setUp()
         {
             Engine.Initialize("Progra2", 800, 600, false);
-
-            core = new Node(0);
-            core.AddNode(3, core);
-            core.AddNode(5, core);
-            core.AddNode(2, core);
-
-            core.SearchNode(2, core);
-            core.SearchNode(9, core);
-            core.SearchNode(3, core);
-            core.SearchNode(5, core);
-            core.SearchNode(32, core);
-            core.SearchNode(12, core);
+            
 
             startDate = DateTime.Now;
         }

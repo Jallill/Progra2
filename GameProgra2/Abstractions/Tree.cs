@@ -9,15 +9,10 @@ namespace Game
     class Tree : IBaseMethods
     {
 
-        Node core;
         string basePath = "Textures/NodeCircle";
 
         public Tree(int value)
         {
-
-            
-            core.AddNode(value, core);
-            //nodes.Add(new Animation(basePath, 1f));
             
         }
 
@@ -33,9 +28,7 @@ namespace Game
 
         public void Render()
         {
-
-            //nodes.ForEach(node => node.RenderNextFrame(, 100));
-
+            
         }
 
     }
