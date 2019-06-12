@@ -46,7 +46,8 @@ namespace Game
         static void setUp()
         {
             Engine.Initialize("Progra2", 800, 600, false);
-            
+
+            GameManager.Instance.SetState(new Screen());
 
             startDate = DateTime.Now;
         }

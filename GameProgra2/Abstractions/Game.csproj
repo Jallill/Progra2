@@ -41,6 +41,7 @@
     <Compile Include="ABB.cs" />
     <Compile Include="NodeSelector.cs" />
     <Compile Include="NodoABB.cs" />
+    <Compile Include="Screen.cs" />
     <Compile Include="Tree.cs" />
     <Compile Include="Utils\Animation.cs" />
     <Compile Include="Utils\EntidadBase.cs" />
