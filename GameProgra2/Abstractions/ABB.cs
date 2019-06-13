@@ -7,17 +7,24 @@ using Game.Interfaces;
 
 namespace Game
 {
-    class ABB : IABBTDA
+    public class ABB : IABBTDA
     {
         NodoABB raiz;
+
+        public void AgregarElem(int x)
+        {
+            AgregarElemento(x, 0, 400, 0);
+        }
         
-        public void AgregarElem(int x, int level = 0)
+        public void AgregarElemento(int x, int level, float xPos, float yPos)
         {
             if (raiz == null)
             {
                 raiz = new NodoABB();
                 raiz.info = x;
                 raiz.level = level;
+                raiz.x = xPos;
+                raiz.y = yPos;
                 raiz.hijoIzq = new ABB();
                 raiz.hijoIzq.InicializarArbol();
                 raiz.hijoDer = new ABB();
@@ -25,13 +32,11 @@ namespace Game
             }
             else if (raiz.info > x)
             {
-                level++;
-                raiz.hijoIzq.AgregarElem(x, level);
+                raiz.hijoIzq.AgregarElemento(x, level++, xPos-100f, yPos+100f);
             }
             else if (raiz.info < x)
             {
-                level++;
-                raiz.hijoDer.AgregarElem(x, level);
+                raiz.hijoDer.AgregarElemento(x, level++, xPos+100, yPos+100);
             }
         }
 
@@ -113,6 +118,15 @@ namespace Game
         public int Raiz()
         {
             return raiz.info;
+        }
+
+        public void PreOrder(IABBTDA a)
+        {
+            if (!a.ArbolVacio())
+            {
+                PreOrder(a.HijoIzq());
+                PreOrder(a.HijoDer());
+            }
         }
     }
 }
