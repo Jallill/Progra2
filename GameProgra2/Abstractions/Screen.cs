@@ -1,4 +1,5 @@
 ﻿using Game.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Game
@@ -17,17 +18,7 @@ namespace Game
         private void SetUp()
         {
             arbol.InicializarArbol();
-            arbol.AgregarElem(10);
-            arbol.AgregarElem(7);
-            arbol.AgregarElem(25);
-            arbol.AgregarElem(6);
-            arbol.AgregarElem(8);
-            arbol.AgregarElem(14);
-            arbol.AgregarElem(16);
-            arbol.AgregarElem(15);
-            arbol.AgregarElem(17);
-
-            Engine.Debug(CalcularProfundidad(arbol, 5));
+            AgregarDatos();
         }
 
         private void PreOrder(IABBTDA a, bool hijoIzq)
@@ -63,6 +54,28 @@ namespace Game
             {
                 return (1 + CalcularProfundidad(t.HijoDer(), x));
             }
+        }
+
+        private void AgregarDatos()
+        {
+            int num = 0;
+            do
+            {
+                Console.WriteLine("Ingrese un numero para agregar al arbol");
+                Console.WriteLine("Ingrese -1 para terminar de agregar");
+                string aux = Console.ReadLine();
+                aux.Trim();
+                if (aux != null && aux != "")
+                {
+                    int valor;
+                    if (int.TryParse(aux, out valor))
+                    {
+                        num = valor;
+                        if (num >= 0) arbol.AgregarElem(num);
+                    }
+                }
+                Console.Clear();
+            } while (num >= 0);
         }
 
         public void Input()

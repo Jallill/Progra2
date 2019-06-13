@@ -40,17 +40,20 @@ namespace Game
         {
             if (raiz == null)
             {
-                raiz = new NodoABB();
-                raiz.info = x;
-                raiz.level = level;
-                raiz.x = position[level][pos-1];
-                raiz.y = yPos;
-                raiz.xscale = xscale;
-                raiz.yscale = yscale;
-                raiz.hijoIzq = new ABB();
-                raiz.hijoIzq.InicializarArbol();
-                raiz.hijoDer = new ABB();
-                raiz.hijoDer.InicializarArbol();
+                if (position.ContainsKey(level))
+                {
+                    raiz = new NodoABB();
+                    raiz.info = x;
+                    raiz.level = level;
+                    raiz.x = position[level][pos - 1];
+                    raiz.y = yPos;
+                    raiz.xscale = xscale;
+                    raiz.yscale = yscale;
+                    raiz.hijoIzq = new ABB();
+                    raiz.hijoIzq.InicializarArbol();
+                    raiz.hijoDer = new ABB();
+                    raiz.hijoDer.InicializarArbol();
+                }
             }
             else if (raiz.info > x)
             {
