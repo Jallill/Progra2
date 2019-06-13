@@ -17,6 +17,7 @@ namespace Game
         static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
         static DateTime startDate;
+        static ABB abb;
 
         public const int width = 800;
         public const int heigth = 600;
@@ -51,7 +52,7 @@ namespace Game
             Engine.Initialize("Progra2", width, heigth, false);
 
             GameManager.Instance.SetState(new Screen());
-
+            
             startDate = DateTime.Now;
         }
 

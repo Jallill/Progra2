@@ -7,16 +7,31 @@ using Game.Interfaces;
 
 namespace Game
 {
-    class ABB : IABBTDA
+    public class ABB : IABBTDA
     {
+        private List<int> listaValores;
+        public ABB()
+        {
+            listaValores = new List<int>();
+            GenerarValoresAleatorios();
+        }
+
         NodoABB raiz;
 
         public void AgregarElem(int x)
+        {
+            AgregarElemento(x, 0, 400, 0);
+        }
+        
+        public void AgregarElemento(int x, int level, float xPos, float yPos)
         {
             if (raiz == null)
             {
                 raiz = new NodoABB();
                 raiz.info = x;
+                raiz.level = level;
+                raiz.x = xPos;
+                raiz.y = yPos;
                 raiz.hijoIzq = new ABB();
                 raiz.hijoIzq.InicializarArbol();
                 raiz.hijoDer = new ABB();
@@ -24,11 +39,11 @@ namespace Game
             }
             else if (raiz.info > x)
             {
-                raiz.hijoIzq.AgregarElem(x);
+                raiz.hijoIzq.AgregarElemento(x, level++, xPos-100f, yPos+100f);
             }
             else if (raiz.info < x)
             {
-                raiz.hijoDer.AgregarElem(x);
+                raiz.hijoDer.AgregarElemento(x, level++, xPos+100, yPos+100);
             }
         }
 
@@ -110,6 +125,55 @@ namespace Game
         public int Raiz()
         {
             return raiz.info;
+        }
+
+        public void PreOrder(IABBTDA a)
+        {
+            if (!a.ArbolVacio())
+            {
+                PreOrder(a.HijoIzq());
+                PreOrder(a.HijoDer());
+            }
+        }
+
+        /// <summary>
+        /// Cargo una lista de valores aleatorios no repetibles para mostrar en el arbol.
+        /// </summary>
+        private void GenerarValoresAleatorios()
+        {
+            Random nro = new Random();
+            bool terminado = false;
+
+            while (!terminado)
+            {
+                int aux = nro.Next(1, 99);
+                if (listaValores.Contains(aux))
+                {
+                    listaValores.Add(aux);
+                }
+                if (listaValores.Count == 32)
+                    terminado = true;
+            }
+            OrdenarLista();
+        }
+
+        /// <summary>
+        /// Ordeno una lista de valores de menor a mayor.
+        /// </summary>
+        private void OrdenarLista()
+        {
+            for (int i = 0; i < listaValores.Count; i++)
+            {
+                for (int j = 0; j < listaValores.Count; j++)
+                {
+                    if (listaValores[j] < listaValores[i])
+                    {
+                        int aux = listaValores[i];
+                        listaValores.Insert(i, listaValores[j]);
+                        listaValores.Insert(j, aux);
+                    }
+                }
+            }
         }
     }
 }

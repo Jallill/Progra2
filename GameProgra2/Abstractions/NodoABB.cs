@@ -10,7 +10,15 @@ namespace Game
     public class NodoABB
     {
         public int info;
-        public IABBTDA hijoIzq;
-        public IABBTDA hijoDer;
+        public ABB hijoIzq;
+        public ABB hijoDer;
+        public int level;
+        public float x;
+        public float y;
+
+        public void Render()
+        {
+            Engine.Draw("Textures/NodeCircle/001.png", x, y);
+        }
     }
 }
