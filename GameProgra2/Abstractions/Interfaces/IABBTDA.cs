@@ -13,7 +13,7 @@ namespace Game.Interfaces
         IABBTDA HijoDer();
         bool ArbolVacio();
         void InicializarArbol();
-        void AgregarElem(int x);
+        void AgregarElem(int x, int level);
         void EliminarElem(int x);
     }
 }
