@@ -10,13 +10,14 @@ namespace Game
     class ABB : IABBTDA
     {
         NodoABB raiz;
-
-        public void AgregarElem(int x)
+        
+        public void AgregarElem(int x, int level = 0)
         {
             if (raiz == null)
             {
                 raiz = new NodoABB();
                 raiz.info = x;
+                raiz.level = level;
                 raiz.hijoIzq = new ABB();
                 raiz.hijoIzq.InicializarArbol();
                 raiz.hijoDer = new ABB();
@@ -24,11 +25,13 @@ namespace Game
             }
             else if (raiz.info > x)
             {
-                raiz.hijoIzq.AgregarElem(x);
+                level++;
+                raiz.hijoIzq.AgregarElem(x, level);
             }
             else if (raiz.info < x)
             {
-                raiz.hijoDer.AgregarElem(x);
+                level++;
+                raiz.hijoDer.AgregarElem(x, level);
             }
         }
 

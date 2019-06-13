@@ -12,5 +12,6 @@ namespace Game
         public int info;
         public IABBTDA hijoIzq;
         public IABBTDA hijoDer;
+        public int level;
     }
 }
