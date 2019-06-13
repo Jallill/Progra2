@@ -42,7 +42,6 @@
     <Compile Include="NodeSelector.cs" />
     <Compile Include="NodoABB.cs" />
     <Compile Include="Screen.cs" />
-    <Compile Include="Tree.cs" />
     <Compile Include="Utils\Animation.cs" />
     <Compile Include="Utils\EntidadBase.cs" />
     <Compile Include="Game.cs" />
@@ -61,7 +60,9 @@
     <Content Include="ship.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Textures\NodeCircle\001.png" />
+    <Content Include="Textures\NodeCircle\001.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

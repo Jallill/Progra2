@@ -18,6 +18,9 @@ namespace Game
         static DateTime lastFrameTime = DateTime.Now;
         static DateTime startDate;
 
+        public const int width = 800;
+        public const int heigth = 600;
+
         static void Main(string[] args)
         {
 
@@ -45,7 +48,7 @@ namespace Game
 
         static void setUp()
         {
-            Engine.Initialize("Progra2", 800, 600, false);
+            Engine.Initialize("Progra2", width, heigth, false);
 
             GameManager.Instance.SetState(new Screen());
 
