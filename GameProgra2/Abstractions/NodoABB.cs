@@ -17,10 +17,23 @@ namespace Game
         public float y;
         public float xscale;
         public float yscale;
+        public Linea izq;
+        public Linea der;
+        
        
         public void Render()
         {
+
+            if(hijoDer.ObtenerRaiz() != null)
+            {
+                new Linea(x, y, hijoDer.ObtenerRaiz().x, hijoDer.ObtenerRaiz().y).DibujarLinea();
+            }
+            if(hijoIzq.ObtenerRaiz() != null)
+            {
+                new Linea(x, y, hijoIzq.ObtenerRaiz().x, hijoIzq.ObtenerRaiz().y).DibujarLinea();
+            }
             Engine.Draw("Textures/NodeCircle/001.png", x, y, xscale, yscale);
+            new Text(info.ToString(), x + 32, y + 32, 32, 32).drawText();
         }
     }
 }

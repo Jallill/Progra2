@@ -21,8 +21,11 @@ namespace Game
             arbol.AgregarElem(7);
             arbol.AgregarElem(25);
             arbol.AgregarElem(6);
+            arbol.AgregarElem(8);
             arbol.AgregarElem(14);
+            arbol.AgregarElem(16);
             arbol.AgregarElem(15);
+            arbol.AgregarElem(17);
 
             Engine.Debug(CalcularProfundidad(arbol, 5));
         }

@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IABBTDA.cs" />
     <Compile Include="ABB.cs" />
+    <Compile Include="Linea.cs" />
     <Compile Include="NodeSelector.cs" />
     <Compile Include="NodoABB.cs" />
     <Compile Include="Screen.cs" />
@@ -175,6 +176,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Textures\NodeCircle\001.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Textures\Pixel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

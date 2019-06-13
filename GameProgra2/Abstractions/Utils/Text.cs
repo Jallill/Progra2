@@ -42,15 +42,15 @@ namespace Game
             {
                 if (c.Equals(' '))
                 {
-                    charTextures.Add(Engine.GetTexture("Texturas/Font/space.png"));
+                    charTextures.Add(Engine.GetTexture("Textures/Font/space.png"));
                 }
                 else if (c.Equals('.'))
                 {
-                    charTextures.Add(Engine.GetTexture("Texturas/Font/dot.png"));
+                    charTextures.Add(Engine.GetTexture("Textures/Font/dot.png"));
                 }
                 else
                 {
-                    charTextures.Add(Engine.GetTexture("Texturas/Font/" + c + ".png"));
+                    charTextures.Add(Engine.GetTexture("Textures/Font/" + c + ".png"));
                 }
             }
         }

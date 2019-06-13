@@ -10,10 +10,18 @@ namespace Game
     public class ABB : IABBTDA
     {
         private List<int> listaValores;
+
+        private Dictionary<int, float[]> position = new Dictionary<int, float[]>();
+        
         public ABB()
         {
             listaValores = new List<int>();
             GenerarValoresAleatorios();
+            position.Add(0, new float[] { 512f });
+            position.Add(1, new float[] { 256f, 768f });
+            position.Add(2, new float[] { 128f, 384f, 640f, 896f });
+            position.Add(3, new float[] { 64f, 192f, 320f, 448f, 576f, 704f, 832f, 960f });
+            position.Add(4, new float[] { 32f, 96f, 160f, 224f, 288f, 352f, 416f, 480f, 544f, 608f, 672f, 736f, 800f, 864f, 928f, 992f });
         }
 
         NodoABB raiz;
@@ -25,17 +33,17 @@ namespace Game
 
         public void AgregarElem(int x)
         {
-            AgregarElemento(x, 0, 512, 0, 1, 1);
+            AgregarElemento(x, 0, 512, 0, 1, 1, 1);
         }
         
-        public void AgregarElemento(int x, int level, float xPos, float yPos, float xscale, float yscale)
+        public void AgregarElemento(int x, int level, float xPos, float yPos, float xscale, float yscale, int pos)
         {
             if (raiz == null)
             {
                 raiz = new NodoABB();
                 raiz.info = x;
                 raiz.level = level;
-                raiz.x = xPos;
+                raiz.x = position[level][pos-1];
                 raiz.y = yPos;
                 raiz.xscale = xscale;
                 raiz.yscale = yscale;
@@ -47,12 +55,15 @@ namespace Game
             else if (raiz.info > x)
             {
                 level++;
-                raiz.hijoIzq.AgregarElemento(x, level, xPos - 100f - 50f * level, yPos + 64f, 1f, 1f);
+                pos *= 2;
+                pos--;
+                raiz.hijoIzq.AgregarElemento(x, level, xPos - 100f - 50f * level, yPos + 64f, 1f, 1f, pos);
             }
             else if (raiz.info < x)
             {
                 level++;
-                raiz.hijoDer.AgregarElemento(x, level, xPos + 100f + 50f * level, yPos + 64f, 1f, 1f);
+                pos *= 2;
+                raiz.hijoDer.AgregarElemento(x, level, xPos + 100f + 50f * level, yPos + 64f, 1f, 1f, pos);
             }
         }
 
