@@ -71,7 +71,7 @@ namespace Game
                     if (int.TryParse(aux, out valor))
                     {
                         num = valor;
-                        if (num >= 0) arbol.AgregarElem(num);
+                        if (num >= 0 && num <= 99) arbol.AgregarElem(num);
                     }
                 }
                 Console.Clear();

@@ -33,7 +33,10 @@ namespace Game
                 new Linea(x, y, hijoIzq.ObtenerRaiz().x, hijoIzq.ObtenerRaiz().y).DibujarLinea();
             }
             Engine.Draw("Textures/NodeCircle/001.png", x, y, xscale, yscale);
-            new Text(info.ToString(), x + 32, y + 32, 32, 32).drawText();
+            string a;
+            if (info < 10) a = "0" + info.ToString(); else a = info.ToString(); 
+            
+            new Text(a, x + 28, y + 48, 24, 24).drawText();
         }
     }
 }

@@ -17,9 +17,8 @@ namespace Game
         static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
         static DateTime startDate;
-        static ABB abb;
-
-        public const int width = 1024;
+        
+        public const int width = 1280;
         public const int heigth = 720;
 
         static void Main(string[] args)
