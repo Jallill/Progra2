@@ -8,6 +8,8 @@ namespace Game.Interfaces
 {
     public interface IABBTDA
     {
+
+        NodoABB ObtenerRaiz();
         int Raiz();
         IABBTDA HijoIzq();
         IABBTDA HijoDer();

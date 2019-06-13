@@ -18,12 +18,17 @@ namespace Game
 
         NodoABB raiz;
 
+        public NodoABB ObtenerRaiz()
+        {
+            return raiz;
+        }
+
         public void AgregarElem(int x)
         {
-            AgregarElemento(x, 0, 400, 0);
+            AgregarElemento(x, 0, 512, 0, 1, 1);
         }
         
-        public void AgregarElemento(int x, int level, float xPos, float yPos)
+        public void AgregarElemento(int x, int level, float xPos, float yPos, float xscale, float yscale)
         {
             if (raiz == null)
             {
@@ -32,6 +37,8 @@ namespace Game
                 raiz.level = level;
                 raiz.x = xPos;
                 raiz.y = yPos;
+                raiz.xscale = xscale;
+                raiz.yscale = yscale;
                 raiz.hijoIzq = new ABB();
                 raiz.hijoIzq.InicializarArbol();
                 raiz.hijoDer = new ABB();
@@ -39,11 +46,13 @@ namespace Game
             }
             else if (raiz.info > x)
             {
-                raiz.hijoIzq.AgregarElemento(x, level++, xPos-100f, yPos+100f);
+                level++;
+                raiz.hijoIzq.AgregarElemento(x, level, xPos - 100f - 50f * level, yPos + 64f, 1f, 1f);
             }
             else if (raiz.info < x)
             {
-                raiz.hijoDer.AgregarElemento(x, level++, xPos+100, yPos+100);
+                level++;
+                raiz.hijoDer.AgregarElemento(x, level, xPos + 100f + 50f * level, yPos + 64f, 1f, 1f);
             }
         }
 
@@ -142,19 +151,16 @@ namespace Game
         private void GenerarValoresAleatorios()
         {
             Random nro = new Random();
-            bool terminado = false;
 
-            while (!terminado)
+            for (int i = 0; i < 32; i++)
             {
-                int aux = nro.Next(1, 99);
-                if (listaValores.Contains(aux))
+                int num = nro.Next(1, 99);
+                if (!listaValores.Contains(num))
                 {
-                    listaValores.Add(aux);
+                    listaValores.Add(num);
                 }
-                if (listaValores.Count == 32)
-                    terminado = true;
             }
-            OrdenarLista();
+            listaValores.Sort();
         }
 
         /// <summary>

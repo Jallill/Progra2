@@ -19,8 +19,8 @@ namespace Game
         static DateTime startDate;
         static ABB abb;
 
-        public const int width = 800;
-        public const int heigth = 600;
+        public const int width = 1024;
+        public const int heigth = 720;
 
         static void Main(string[] args)
         {

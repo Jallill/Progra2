@@ -15,10 +15,12 @@ namespace Game
         public int level;
         public float x;
         public float y;
-
+        public float xscale;
+        public float yscale;
+       
         public void Render()
         {
-            Engine.Draw("Textures/NodeCircle/001.png", x, y);
+            Engine.Draw("Textures/NodeCircle/001.png", x, y, xscale, yscale);
         }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using Game.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game
 {
@@ -43,24 +39,7 @@ namespace Game
 
         private void Dibujar(IABBTDA a, bool hijoIzq)
         {
-            if (hijoIzq)
-            {
-                DibujarNodo(a, -1);
-            }
-            else
-            {
-                DibujarNodo(a, 1);
-            }
-        }
-
-        private void DibujarNodo(IABBTDA a, int factor)
-        {
-            Engine.Draw("Textures/NodeCircle/001.png",
-                                        Program.width / 2 + factor * 64 * CalcularProfundidad(arbol, a.Raiz()),
-                                        32 + CalcularProfundidad(arbol, a.Raiz()) * 64,
-                                        offsetX: 32,
-                                        offsetY: 32);
-            Engine.Debug("Se dibujó: " + a.Raiz());
+            a.ObtenerRaiz().Render();
         }
 
         private int CalcularProfundidad(IABBTDA t, int x)
